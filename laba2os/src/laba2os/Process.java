@@ -17,7 +17,7 @@ public class Process {
 	public Process(String description, int maxTime, Priority priority) {
 
 		this.description += description + " с приоритетом: " + priority.toString();		
-		this.maxTime = maxTime * priority.getNum();		
+				
 		Threads = new ArrayList<Thread>();
 		int threadsNumber = rand.nextInt(4) + 1;		
 		threadMaxTime = this.maxTime/threadsNumber;

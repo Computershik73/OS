@@ -49,12 +49,14 @@ public class Main {
 		System.out.println();
 	}
 
-	private static void createProcess() {		
-	
+	private static void createProcess() {
+
 		for (int i = 0; i < rand.nextInt(5) + 3; i++) {
-			Processes.add(new Process("" + i, quant, Priority.values()[rand.nextInt(3)]));
+		Priority priority = Priority.values()[rand.nextInt(3)];
+		Processes.add(new Process("" + i, quant * priority.getNum(), priority));
 		}
-	}
+		}
+	
 	private static void implementThreads(Process process) {
 		if (!(process.maxTime > 0)) {
 			System.out.println("Выделенный квант времени меньше 1");
