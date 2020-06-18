@@ -16,20 +16,13 @@ public class PhysicalMemory {
 	public ArrayList<Integer> getFileClusters(File file)
 	{
 		ArrayList<Integer> list= new ArrayList<Integer>();
-		int start = -1;
-		for(int i = 0; i < table.size(); i ++)
-		{
-			if(table.get(i).getFile() == file)
-			{
-				start = table.get(i).getStartFile();
-				break;
-			}
-		}
-		while(start != -1)
+		int start = file.getStartInMem();		
+		while(place[start] != -1)
 		{
 			list.add(start);
 			start = place[start];
 		}
+		list.add(start);
 		return list;
 	}
 
